@@ -55,6 +55,22 @@ bool UCoffeetrayProxy::SendArray2(const FString& Command)
 	return tray && coffeetray_send(tray, TCHAR_TO_ANSI(*Command), sizeof(pack), &pack);
 }
 
+bool UCoffeetrayProxy::ReadArray(const FString& Command)
+{
+	float* p = 0;
+	if (!(tray && coffeetray_send(tray, TCHAR_TO_ANSI(*Command), sizeof(p), &p))) return false;
+	FMemory::Memcpy(FArrayBufferAccessor::GetData(), p, FArrayBufferAccessor::GetSize());
+	return true;
+}
+
+bool UCoffeetrayProxy::WriteArray(const FString& Command)
+{
+	float* p = 0;
+	if (!(tray && coffeetray_send(tray, TCHAR_TO_ANSI(*Command), sizeof(p), &p))) return false;
+	FMemory::Memcpy(p, FArrayBufferAccessor::GetData(), FArrayBufferAccessor::GetSize());
+	return true;
+}
+
 void UCoffeetrayProxy::BeginDestroy()
 {
 	Super::BeginDestroy();

@@ -27,6 +27,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "DeepLearning")
 	bool SendArray2(const FString& Command);
 
+	UFUNCTION(BlueprintCallable, Category = "DeepLearning")
+	bool ReadArray(const FString& Command);
+
+	UFUNCTION(BlueprintCallable, Category = "DeepLearning")
+	bool WriteArray(const FString& Command);
+
 	virtual void BeginDestroy() override;
 	
 	void* tray{ nullptr };

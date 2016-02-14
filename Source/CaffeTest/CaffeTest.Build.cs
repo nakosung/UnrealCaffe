@@ -6,20 +6,6 @@ using System.IO;
 
 public class CaffeTest : ModuleRules
 {
-    protected string ModulePath
-    {
-        get { return Path.GetDirectoryName(RulesCompiler.GetModuleFilename(this.GetType().Name)); }
-    }
-
-    protected string ThirdPartyPath
-    {
-        get { return Path.GetFullPath(Path.Combine(ModulePath, "..", "..", "ThirdParty")); }
-    }
-
-    protected string CUDAPath
-    {
-        get { return "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v7.5"; }
-    }
     protected string CoffeetrayPath
     {
         get { return "C:\\app\\caffe\\coffeetray"; }
