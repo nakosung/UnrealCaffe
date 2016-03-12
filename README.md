@@ -1,4 +1,4 @@
-# CaffeTest 
+# UnrealCaffe: Caffe test on UnrealEngine4 
 
 - PoC for coupling between UnrealEngine and Caffe.
 
